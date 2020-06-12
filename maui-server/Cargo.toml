@@ -13,21 +13,21 @@ license = "MIT"
 edition = "2018"
 
 [dependencies]
-hyper = "0.13"
-routerify = "1.1"
-routerify-cors = "1.1"
-routerify-json-response = "1.1"
-tokio = { version = "0.2", features = ["full"] }
+hyper = "0.13.6"
+routerify = "1.1.4"
+routerify-cors = "1.1.0"
+routerify-json-response = "1.1.0"
+tokio = { version = "0.2.21", features = ["full"] }
 dotenv = "0.15.0"
-colored = "1.9"
-log = "0.4"
-fern = "0.5"
-chrono = "0.4"
-serde = { version = "1.0", features = ["derive"] }
-serde_json = "1.0"
-uuid = { version = "0.8", features = ["v4"] }
-bytes = "0.5"
-reqwest = { version = "0.10", features = ["json"] }
+colored = "1.9.3"
+log = "0.4.8"
+fern = "0.6.0"
+chrono = "0.4.11"
+serde = { version = "1.0.111", features = ["derive"] }
+serde_json = "1.0.55"
+uuid = { version = "0.8.1", features = ["v4"] }
+bytes = "0.5.4"
+reqwest = { version = "0.10.6", features = ["json"] }
 lazy_static = "1.4.0"
-async-trait = "0.1"
-url = "2.1"
+async-trait = "0.1.35"
+url = "2.1.1"

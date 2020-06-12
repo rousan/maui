@@ -10,6 +10,10 @@ tasks:
       - command: go get github.com/aktau/github-release
       - command: cargo install cargo-watch
       - command: cargo install releez
+      - command: cargo install cargo-edit
+  upgrade:
+    run:
+      - command: cargo upgrade --workspace
   server:start:dev:
     run:
       - command: cargo watch --watch ./maui-server/src -s "cargo run -p maui-server"
