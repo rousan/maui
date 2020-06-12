@@ -41,6 +41,11 @@ blah....
 
 Please download it from [releases](https://github.com/rousan/maui/releases) page.
 
+
+## TLS Support for Secured Connection
+
+As this tool is meant to be used in development purpose, I didn't add support for `TLS`, but PR is welcome.
+
 ## Development
 
 ### Requirements
