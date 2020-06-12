@@ -1,0 +1,2 @@
+[workspace]
+members = ["maui-cli", "maui-server"]

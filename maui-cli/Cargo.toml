@@ -1,0 +1,20 @@
+[package]
+name = "maui"
+version = "1.0.0"
+description = "A fast TCP connection tunneling/port-forwarding tool, useful for any TCP protocol e.g. http, https, ftp, websocket, mysql etc."
+homepage = "https://github.com/rousan/maui"
+repository = "https://github.com/rousan/maui"
+keywords = ["tunneling", "tcp-tunnel", "http-tunnel", "port-forwarding", "cli"]
+categories = ["command-line-utilities"]
+authors = ["Rousan Ali <hello@rousan.io>"]
+readme = "README.md"
+license = "MIT"
+edition = "2018"
+
+[dependencies]
+clap = "2.33"
+colored = "1.9"
+lazy_static = "1.4.0"
+uuid = { version = "0.8", features = ["v4"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
