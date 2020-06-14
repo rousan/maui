@@ -6,6 +6,7 @@ use routerify::{Middleware, Router};
 use routerify_cors::enable_cors_all;
 
 mod api;
+mod ws;
 
 pub fn router() -> Router<Body, crate::Error> {
     Router::builder()
@@ -13,6 +14,7 @@ pub fn router() -> Router<Body, crate::Error> {
         .middleware(enable_cors_all())
         .get("/", home_get)
         .scope("/api", api::router())
+        .scope("/ws", ws::router())
         .err_handler(error_handler)
         .build()
         .unwrap()

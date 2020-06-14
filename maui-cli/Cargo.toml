@@ -12,6 +12,7 @@ license = "MIT"
 edition = "2018"
 
 [dependencies]
+tokio = { version = "0.2.21", features = ["rt-core", "rt-threaded", "io-driver", "net", "tcp", "macros", "rt-util", 'io-util', "sync", "stream", "test-util"] }
 clap = "2.33.1"
 colored = "1.9.3"
 lazy_static = "1.4.0"

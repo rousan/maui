@@ -17,6 +17,7 @@ hyper = "0.13.6"
 routerify = "1.1.4"
 routerify-cors = "1.1.0"
 routerify-json-response = "1.1.0"
+routerify-websocket = { version = "1.0.0", features = ["json"] }
 tokio = { version = "0.2.21", features = ["full"] }
 dotenv = "0.15.0"
 colored = "1.9.3"

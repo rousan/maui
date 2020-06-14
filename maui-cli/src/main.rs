@@ -2,36 +2,45 @@ extern crate maui;
 use clap::{App, Arg};
 use colored::*;
 use maui::constants;
+use maui::help;
 
-fn main() {
+#[tokio::main]
+async fn main() {
     let matches = App::new(constants::APP_NAME)
         .version(constants::APP_VERSION)
         .version_short("v")
         .author(constants::APP_AUTHOR)
         .about(constants::APP_DESCRIPTION)
+        .after_help(help::EXAMPLES_HELP_TEXT)
         .arg(
-            Arg::with_name("filePath")
-                .help("A file path to see size")
-                .value_name("FILE_PATH")
+            Arg::with_name("target_address")
+                .help("The tunneling target address")
+                .value_name("HOST:PORT or PORT")
                 .index(1)
                 .required(true),
         )
         .arg(
-            Arg::with_name("format")
-                .short("f")
-                .long("format")
-                .value_name("FORMAT")
-                .help("Specify a format to see file sie e.g. 'kb' or 'b'")
+            Arg::with_name("api_server")
+                .short("s")
+                .long("api-server")
+                .value_name("HOST:PORT")
+                .help("Specify the API server host and port to use instead of the default one")
                 .takes_value(true)
-                .required(true),
+                .required(false),
+        )
+        .arg(
+            Arg::with_name("is_secure")
+                .long("secure")
+                .help("Specify whether to TLS or not [UPCOMING]")
+                .required(false),
         )
         .get_matches();
 
-    let file_path = matches.value_of("filePath").unwrap();
-    let format = matches.value_of("format").unwrap();
+    let target_address = matches.value_of("target_address").unwrap();
+    let api_server = matches.value_of("api_server").unwrap_or(constants::DEFAULT_API_SERVER);
+    let is_secure = matches.is_present("is_secure");
 
-    match maui::file_size::human_readable_file_size(file_path.as_ref(), format) {
-        Ok(size) => println!("File size: {}", size),
-        Err(err) => eprintln!("{} {}", "error:".red(), err),
+    if let Err(err) = maui::tunnel::tunnel_address(target_address, api_server, is_secure).await {
+        eprintln!("{} {}", "error:".red(), err);
     }
 }

@@ -22,25 +22,25 @@ tasks:
       - command: cargo run -p maui-server --release
   cli:run:dev:
     run:
-      - command: cargo run -p maui-cli
+      - command: cargo run -p maui
   cli:run:prod:
     run:
-      - command: cargo run -p maui-cli --release
+      - command: cargo run -p maui --release
   cli:build:macos:
     run:
-      - command: cargo build -p maui-cli --release
+      - command: cargo build -p maui --release
       - command: mkdir -p dist
       - command: cp ./target/release/maui ./dist/maui
       - command: cd dist && tar -czvf maui-v${version}-x86_64-apple-darwin.tar.gz maui && rm maui && cd ..
   cli:build:linux:
     run:
-      - command: cross build -p maui-cli --release --target x86_64-unknown-linux-gnu
+      - command: cross build -p maui --release --target x86_64-unknown-linux-gnu
       - command: mkdir -p dist
       - command: cp ./target/x86_64-unknown-linux-gnu/release/maui ./dist/maui
       - command: cd dist && tar -czvf maui-v${version}-x86_64-unknown-linux-gnu.tar.gz maui && rm maui && cd ..
   cli:build:windows:
     run:
-      - command: cross build -p maui-cli --release --target x86_64-pc-windows-gnu
+      - command: cross build -p maui --release --target x86_64-pc-windows-gnu
       - command: mkdir -p dist
       - command: cp ./target/x86_64-pc-windows-gnu/release/maui.exe ./dist/maui.exe
       - command: cd dist && zip maui-v${version}-x86_64-pc-windows-gnu.zip maui.exe && rm maui.exe && cd ..
