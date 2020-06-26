@@ -42,7 +42,6 @@ async fn main() {
     let is_secure = matches.is_present("is_secure");
 
     if let Err(err) = maui::tunnel::tunnel_address(target_address, api_server, is_secure).await {
-        // Handle errors.
         eprintln!("{} {}", "error:".red(), err);
     }
 }
